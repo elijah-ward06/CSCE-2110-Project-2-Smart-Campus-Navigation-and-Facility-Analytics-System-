@@ -8,11 +8,12 @@ using namespace std;
 
 class Hashtable{
     public:
-    Hashtable(string in);
+    Hashtable();
     ~Hashtable();
 
-    string search();
-    string insert();
+    string* search(string key);
+    void insert(string key);
+    void remove(string key);
 
     private:
 
@@ -20,7 +21,7 @@ class Hashtable{
 
     int getHashKey(string key);
 
-
+    int bucketSize = 256;
 };
 
 #endif
