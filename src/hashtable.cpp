@@ -1,4 +1,5 @@
-#include "util/hashtable.h"
+#include "hashtable.h"
+#include "Facility.h"
 
 #include <string>
 
@@ -12,17 +13,17 @@ Hashtable::~Hashtable(){
 
 }
 
-string* Hashtable::search(string key){
+Facility* Hashtable::search(string key){
    int loc = getHashKey(key);
 
     if (loc < 0 || loc >= bucket.size()){
         return nullptr;
     }
 
-    vector<string>& selection = bucket[loc];
+    vector<Facility>& selection = bucket[loc];
 
-    for (string& i : selection) {
-        if (i == key){
+    for (Facility& i : selection) {
+        if (i.id == key){
             return &i;
         }
     }
@@ -30,37 +31,42 @@ string* Hashtable::search(string key){
     return nullptr;
 }
 
-void Hashtable::remove(string key){
+bool Hashtable::remove(string key){
     int loc = getHashKey(key);
 
     if (loc < 0 || loc >= bucket.size()){
-        return;
+        return false;
     }
 
-    vector<string>& selection = bucket[loc];
+    vector<Facility>& selection = bucket[loc];
 
-    for (auto it = selection.begin(); it != selection.end(); it++) {
-        if (*it == key){
-            selection.erase(it);
-            return;
-        }
+    for (int i = 0; i < selection.size(); ++i) {
+       if (selection[i].id == key){
+            selection.erase(selection.begin() + i);
+            return true;
+       }
     }
+
+    
+
+    return false;
 
 }
 
-void Hashtable::insert(string key){
-    int loc = getHashKey(key);
+bool Hashtable::insert(Facility key){
+    int loc = getHashKey(key.id);
 
     if (loc < 0 || loc >= bucket.size()){
-        return;
+        return false;
     }
 
     //Prevent duplicates
-    if (search(key) != nullptr){
-        return;
+    if (search(key.id) != nullptr){
+        return false;
     }
 
     bucket[loc].push_back(key);
+    return true;
 }
 
 int Hashtable::getHashKey(string key){

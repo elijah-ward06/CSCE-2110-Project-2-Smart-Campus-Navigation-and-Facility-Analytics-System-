@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include "Facility.h"
 
 using namespace std;
 
@@ -11,13 +12,13 @@ class Hashtable{
     Hashtable();
     ~Hashtable();
 
-    string* search(string key);
-    void insert(string key);
-    void remove(string key);
+    Facility* search(string key);
+    bool insert(Facility key);
+    bool remove(string key);
 
     private:
 
-    vector<vector<string>> bucket;
+    vector<vector<Facility>> bucket;
 
     int getHashKey(string key);
 
