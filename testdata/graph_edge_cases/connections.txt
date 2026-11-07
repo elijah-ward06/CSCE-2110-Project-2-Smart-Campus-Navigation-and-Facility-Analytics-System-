@@ -1,0 +1,8 @@
+Library|STUDENT UNION
+student union|library
+Library|Library
+Library|Mars
+Library
+Library|
+Gym|Library
+Library|Lab #5

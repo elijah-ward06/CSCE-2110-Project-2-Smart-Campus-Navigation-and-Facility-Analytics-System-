@@ -1,0 +1,17 @@
+Bradey Jacobs, Tests for Member B (M1). Format: number | description | input | expected | actual | result
+G1 | Valid sample load | data/ | buildings 7 accepted 0 rejected; connections 6 accepted 0 rejected | same | PASS
+G2 | Graph display | menu 3 | Observatory shows (no connections); neighbors in file order | Library: Student Union, Business Building ... Observatory: (no connections) | PASS
+G3 | Counts and degrees | menu 4 | 7 buildings, 6 connections, degrees 2,3,2,1,2,2,0 | same | PASS
+G4 | BFS from connected building | Library | Library 0, Student Union 1, Business Building 1, Science Building 2, Gym 2, Engineering Building 3; 6 of 7 | same | PASS
+G5 | BFS lowercase/extra spaces | "library" | same as G4 | same | PASS
+G6 | BFS from isolated building | "  Observatory " | only Observatory (distance 0); 1 of 7 | same | PASS
+G7 | BFS unknown start | Nowhere | error, return to menu | Error: unknown building 'Nowhere'. | PASS
+G8 | BFS blank start | (blank) | error, return to menu | Error: building name cannot be blank. | PASS
+G9 | Multiple components | sample data | Observatory separate from the other six (G4 6 of 7, G6 1 of 7) | same | PASS
+G10 | Duplicate building differing by case | LIBRARY after Library | rejected with line number | WARNING ... line 6: duplicate building name 'LIBRARY' | PASS
+G11 | Reversed duplicate connection | student union|Library after Library|STUDENT UNION | rejected | WARNING ... line 2: duplicate connection | PASS
+G12 | Self-connection, unknown building, wrong field count, empty field | Library|Library; Library|Mars; Library; Library| | each rejected with line and reason | all four warnings printed | PASS
+G13 | Windows line endings, whitespace, # in name | testdata/graph_edge_cases | loads; "Lab #5" kept | 5 buildings accepted, 3 connections accepted | PASS
+G14 | Missing files | nonexistent directory | error naming each file, no crash | ERROR: Could not open file nodir/buildings.txt ... ; menu works | PASS
+G15 | Invalid menu input (test driver) | x | error, recovers | Invalid option. | PASS
+(Add your own CELL compile/run result and re-run G1-G15 through the real menu once main.cpp is integrated.)

@@ -1,0 +1,11 @@
+CAMPUS GRAPH (Member B)
+Representation: adjacency list (vector<vector<int>> adj) with a parallel vector<string> of building
+names. Vertex index = position in buildings.txt. Chosen because it is dynamically sized (no fixed
+limits), stores each neighbor list in insertion order (required for BFS order), and is efficient for a
+sparse campus graph. Each undirected connection is added to both endpoints' lists and counted once in
+edgeCount. Duplicate and reversed connections, self-connections, and unknown buildings are rejected.
+Building lookup (findBuilding) trims input and compares ASCII case-insensitively; internal spaces matter.
+BFS: queue<int> plus vector<bool> visited, marked when a building is enqueued; a distance vector gives
+the number of connections from the start. Neighbors are never sorted. Reachable count includes the start.
+Classes: CampusGraph (include/campusgraph.h, src/campusgraph.cpp); string helpers in include/stringutil.h.
+ 
