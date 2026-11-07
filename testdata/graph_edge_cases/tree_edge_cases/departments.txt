@@ -1,0 +1,13 @@
+# edge cases
+
+Physics|University
+  University  |  none  
+College of Science|University
+COLLEGE OF SCIENCE|University
+Other Root|NONE
+Astro|Mars Dept
+Math
+A|B|C
+|University
+Room #5 Lab|college of science
+Physics|College of Science

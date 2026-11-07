@@ -8,4 +8,24 @@ Building lookup (findBuilding) trims input and compares ASCII case-insensitively
 BFS: queue<int> plus vector<bool> visited, marked when a building is enqueued; a distance vector gives
 the number of connections from the start. Neighbors are never sorted. Reachable count includes the start.
 Classes: CampusGraph (include/campusgraph.h, src/campusgraph.cpp); string helpers in include/stringutil.h.
- 
+
+
+Department tree (Member C)
+- Structure: general tree. Each DepartmentNode holds its name, a pointer to its parent, and a
+  std::vector<DepartmentNode*> of children kept in insertion order, so a node can have any
+  number of children. DepartmentTree owns the root and a department count.
+- Why: a vector of child pointers is the simplest general-tree form, keeps siblings in
+  insertion order for traversals, and has no fixed limit. The parent pointer makes depth
+  (walk up to the root) and the "Parent" field of a search O(depth).
+- Loading (departments.txt): each line is split on '|' and trimmed. Rejections, in order:
+  wrong field count, empty field, first record not using NONE, a later record using NONE
+  (only one root), unknown parent (must be accepted on an earlier line), duplicate name
+  (case-insensitive). Each warning shows filename, line number, and reason.
+- Add from menu: empty tree -> the name becomes the root with no parent prompt; otherwise
+  the parent must exist and the name must be new. Changes are in memory only.
+- Search: case-insensitive recursive search from the root; shows name, parent (None for the
+  root), direct-child count, and depth.
+- Hierarchy display and preorder: recursive preorder (node, then children left to right).
+  The hierarchy indents 4 spaces per depth; the preorder option prints the same order with
+  no indentation.
+- Memory: the destructor deletes every node recursively (children before parent).

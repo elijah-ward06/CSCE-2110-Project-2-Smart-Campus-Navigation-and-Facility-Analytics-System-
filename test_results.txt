@@ -15,3 +15,23 @@ G13 | Windows line endings, whitespace, # in name | testdata/graph_edge_cases | 
 G14 | Missing files | nonexistent directory | error naming each file, no crash | ERROR: Could not open file nodir/buildings.txt ... ; menu works | PASS
 G15 | Invalid menu input (test driver) | x | error, recovers | Invalid option. | PASS
 (Add your own CELL compile/run result and re-run G1-G15 through the real menu once main.cpp is integrated.)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Anthony Wink, Tests for Member C (M1). Format: Test # | Description | Input | Expected | Actual | Result
+T-1 | Load sample departments | data/ | 7 accepted, 0 rejected | 7 accepted, 0 rejected | PASS
+T-2 | Hierarchy display | option 8 | University, 2 colleges indented 4, 4 depts indented 8 | as expected | PASS
+T-3 | Preorder traversal | option 9 | University, College of Engineering, Computer Science, Electrical Engineering, College of Science, Mathematics, Physics (no indent) | as expected | PASS
+T-4 | Search root | "University" | Parent None, Children 2, Depth 0 | as expected | PASS
+T-5 | Search non-root, case/whitespace | "  computer science " | Computer Science, Parent College of Engineering, Children 0, Depth 2 | as expected | PASS
+T-6 | Search missing | "History" | not-found message | "Department 'History' not found." | PASS
+T-7 | Blank name | "" at search | error, back to menu | "Error: department name cannot be blank." | PASS
+T-8 | Add duplicate | "Computer Science" under University | rejected, tree unchanged | "duplicate department name" | PASS
+T-9 | Add with unknown parent | "History" under "Arts" | rejected, tree unchanged | "unknown parent 'Arts'" | PASS
+T-10 | Add valid (name with spaces, parent any case) | "Data Science" under "computer science" | added at depth 3 | added, shown under Computer Science | PASS
+T-11 | Missing departments.txt / empty tree | testdata/tree_missing | error naming file, empty-tree messages | "Could not open file ...", "No departments are loaded." | PASS
+T-12 | Add root to empty tree | "University" | no parent prompt; becomes root | added; search shows Parent None, Depth 0 | PASS
+T-13 | Root-only tree | testdata/tree_root_only | 1 accepted; root search Children 0, Depth 0 | as expected | PASS
+T-14 | Edge cases file (CRLF, whitespace, lowercase "none", # in name) | testdata/tree_edge_cases | line 3 first record not NONE; line 6 case-insensitive duplicate; line 7 second NONE; line 8 unknown parent; lines 9-10 field count; line 11 empty field; 4 accepted, 7 rejected | as expected | PASS
+T-15 | Invalid menu input | "abc", "" | error, menu repeats | "Invalid option." | PASS
+T-16 | Memory check | valgrind --leak-check=full | no leaks | no errors reported | PASS

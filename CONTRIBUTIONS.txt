@@ -1,3 +1,10 @@
 Bradey Jacobs, Member B: campus graph module (CampusGraph: adjacency list, buildings.txt and
 connections.txt loading/validation, graph display, counts and degrees) and BFS reachability. Shared:
 menu integration, documentation, testing.
+
+-------------------------------------------------------------------------------------------------------------
+
+Anthony Wink, Member C: department tree module (DepartmentNode, DepartmentTree: general tree
+with a vector of child pointers, departments.txt loading/validation, add department, search,
+indented hierarchy display, preorder traversal, destructor). Shared: menu integration
+(options 6-9), documentation, testing.
