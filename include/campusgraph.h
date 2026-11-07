@@ -5,6 +5,8 @@
 #define CAMPUSGRAPH_H
 
 #include <string>
+#include <vector>
+
 //Accepted / rejected record counts reported after each file load.
 struct GraphLoadSummary {
     int accepted = 0;
