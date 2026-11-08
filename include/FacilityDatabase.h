@@ -17,8 +17,8 @@ string building, string category);
 
 Facility* findById(string id);
 
-//void displayAll();
-//void displayFacility();
+void displayAll();
+void displayFacility();
 
 int count() { return Facilities.size(); }
 

@@ -1,3 +1,6 @@
+// Purpose: Implementation of FacilityDatabase: Storage of data
+// 
+// Author: Elijah Ward, Member A
 #include "Facility.h"
 #include "FacilityDatabase.h"
 
@@ -27,3 +30,10 @@ Facility* FacilityDatabase::findById(string id){
     return table.search(id);
 }
 
+void FacilityDatabase::displayAll(){
+    
+}
+
+void FacilityDatabase::displayFacility(){
+
+}

@@ -1,3 +1,6 @@
+// Purpose: Implementation of Hashtable: Data Storage 
+// Search, Remove and Insert
+// Author: Elijah Ward, Member A
 #include "hashtable.h"
 #include "Facility.h"
 
