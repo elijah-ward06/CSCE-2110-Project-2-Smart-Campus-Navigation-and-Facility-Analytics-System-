@@ -1,3 +1,16 @@
+Hash Table (Member A)
+- Hash Formula: ((letter − 'A') × 1000 + number) % 256. Chosen to specifically work with the format of "Fxxx" x being a number.
+- Collison Strategy: Seperate Chaining, the facility database doesn't load a lot of strings, collision is minimal enough to
+                     use a linear vector to handle collisions. This is done by every hash index being itself a Vector of facilities.
+- Collision Handling: Every collision is handled by checking if the place is storing already has a size of one, if so it pushes
+                      the facility info to the back of the vector and ups its collision count by 1.
+- Capacity:         256 was selected as the maximum capacity for the hash table
+- ID Handling:      ID's are always checked to be correct in stringutil, capitalization and digit count are checked everytime.
+- ID Lookup:        Searching gets 1 ID and checks only that one bucket. It will iterate through the bucket (which is a vector)
+                    till there are no items left OR the vector runs out of members. Tested and shown in testdata/hash_edge_cases/
+- Classes:          Facility, Hashtable, FacilityDatabase (includes CampusGraph* for building check), stringutil.h, main.cpp
+
+
 CAMPUS GRAPH (Member B)
 Representation: adjacency list (vector<vector<int>> adj) with a parallel vector<string> of building
 names. Vertex index = position in buildings.txt. Chosen because it is dynamically sized (no fixed
@@ -29,3 +42,4 @@ Department tree (Member C)
   The hierarchy indents 4 spaces per depth; the preorder option prints the same order with
   no indentation.
 - Memory: the destructor deletes every node recursively (children before parent).
+

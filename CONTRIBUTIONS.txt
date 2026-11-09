@@ -1,3 +1,9 @@
+Elijah Ward, Member A: Hashtable/FacilityDatabase module (Facility, FacilityDatabase: Hashtable that uses Vectors of Facilities.)
+facilities.txt, loading/validation, ReadMe.txt, compile.sh, debugging & commmit tracking.
+Shared: main menu, github tracking, documentation, testing
+
+-------------------------------------------------------------------------------------------------------------
+
 Bradey Jacobs, Member B: campus graph module (CampusGraph: adjacency list, buildings.txt and
 connections.txt loading/validation, graph display, counts and degrees) and BFS reachability. Shared:
 menu integration, documentation, testing.
