@@ -6,6 +6,7 @@
 
 #include <string>
 #include <vector>
+#include <cctype>
 
 namespace strutil {
 
@@ -23,6 +24,42 @@ inline std::string toLower(std::string s) {
     for (char& c : s)
         if (c >= 'A' && c <= 'Z') c = static_cast<char>(c - 'A' + 'a');
     return s;
+}
+
+//Checking if all is uppercase
+inline bool isUpperString(std::string s){
+    for (char& c : s){
+        if (islower(c)){
+            return false;
+        }
+    }
+
+    return true;
+}
+
+inline bool isValidID(std::string id){
+    if (id[0] != 'F'){
+        return false;
+    }
+    else if(id.length() != 4){
+        return false;
+    }
+    else if (!(isdigit(id[1]) && isdigit(id[2]) && isdigit(id[3]))){
+        return false;
+    }
+
+    return true;
+}
+
+//Checking if all is lowercase
+inline bool isLowerString(std::string s){
+    for (char& c : s){
+        if (isupper(c)){
+            return false;
+        }
+    }
+
+    return true;
 }
 
 //Case-insensitive equality.

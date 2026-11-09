@@ -68,7 +68,12 @@ bool Hashtable::insert(Facility key){
         return false;
     }
 
+    if (bucket[loc].size() > 0){
+        collisions++;
+    }
+
     bucket[loc].push_back(key);
+    entries++;
     return true;
 }
 

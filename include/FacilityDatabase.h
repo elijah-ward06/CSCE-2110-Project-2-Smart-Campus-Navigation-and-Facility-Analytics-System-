@@ -5,26 +5,36 @@
 #include <vector>
 #include "Facility.h"
 #include "hashtable.h"
+#include "campusgraph.h"
+
+struct FacilityLoadSummary {
+    int accepted = 0;
+    int rejected = 0;
+};
 
 class FacilityDatabase {
 public:
 
-FacilityDatabase();
+FacilityDatabase(CampusGraph* g);
 ~FacilityDatabase();
 
-void addFacility(string id, string name,
-string building, string category);
+FacilityLoadSummary loadFacilities(const string& path);
 
 Facility* findById(string id);
 
 void displayAll();
-void displayFacility();
 
 int count() { return Facilities.size(); }
 
 private:
+
+    void addFacility(string id, string name,
+    string building, string category);
+
     vector<Facility> Facilities;
     Hashtable table;
+
+    CampusGraph* graph;
 
 };
 
