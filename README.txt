@@ -62,10 +62,10 @@ include/            Header files (Facility.h, FacilityDatabase.h, hashtable.h, c
 src/                Source files, including main.cpp
 data/               The four instructor-provided input files (unchanged)
 testdata/           Our own test data folders:
-  <collision>/          facility IDs that collide in the hash table
+  hash_edge_cases/          facility IDs that collide in the hash table
   graph_edge_cases/     duplicate/reversed connections, CRLF, etc.
-  <tree_edge_cases>/    department rejection cases
-  <tree_root_only>/     root-only department tree
+  graph_edge_cases/tree_edge_cases/    department rejection cases
+  graph_edge_cases/tree_root_only/     root-only department tree
 tests/              Standalone module test drivers (not part of the main build)
 README.txt          This file
 design_document.txt Hash function, collision strategy, graph and tree design
