@@ -28,9 +28,6 @@ int count() { return Facilities.size(); }
 
 private:
 
-    void addFacility(string id, string name,
-    string building, string category);
-
     vector<Facility> Facilities;
     Hashtable table;
 

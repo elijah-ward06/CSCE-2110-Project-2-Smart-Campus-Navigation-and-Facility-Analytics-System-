@@ -23,18 +23,6 @@ FacilityDatabase::~FacilityDatabase(){
     
 }
 
-void FacilityDatabase::addFacility(string id, string name,
-string building, string category){
-    Facility f;
-    f.id = id;
-    f.name = name;
-    f.building = building;
-    f.catagory = category;
-
-    Facilities.push_back(f);
-    table.insert(f);
-}
-
 //Load facilities.txt; check order: field count, empty, ID Format, unknown, duplicate.
 FacilityLoadSummary FacilityDatabase::loadFacilities(const string& path) {
     ifstream in(path);
