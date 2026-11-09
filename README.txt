@@ -1,8 +1,3 @@
-Files (graph): include/campusgraph.h, src/campusgraph.cpp, include/stringutil.h
-Test driver (not part of the build): tests/graph_test_main.cpp
-  g++ -I./include tests/graph_test_main.cpp src/campusgraph.cpp -o graph_test && ./graph_test data
-Own test data: testdata/graph_edge_cases/ (run with: ./Program testdata/graph_edge_cases)
-
 CSCE 2110 - Project 2: Smart Campus Navigation and Facility Analytics System
 [MILESTONE 1]
 
@@ -14,10 +9,10 @@ Anthony Wink - Member C: Department Tree, Preorder Traversal
 
 Purpose
 --------
-A console porgram that loads campus data from text files and
+A console program that loads campus data from text files and
 lets the user view and search facilities (by ID using a custom hash table),
-explore building connections (undirected graph by BFS), and browse the acedmic
-department hierachy (general tree)
+explore building connections (undirected graph by BFS), and browse the academic
+department hierarchy (general tree)
 
 Building
 --------
@@ -34,11 +29,11 @@ Running
 ./Program             Automatically sets the data folder to 'data/'
 ./Program <folder>    Loads data from <folder>
 
-Arguements are optional, files are loaded in order:
+Arguments are optional, files are loaded in order:
   - buildings.txt
   - connections.txt
   - facilities.txt
-  - depratments.txt
+  - departments.txt
 
 Warnings for rejected records and a load summary
 for each file are printed before the menu appears.

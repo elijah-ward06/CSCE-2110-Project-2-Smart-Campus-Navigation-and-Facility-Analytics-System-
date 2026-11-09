@@ -1,20 +1,20 @@
-  Elijah Ward, Tests for Member A (M1). Format: number | description | input | expected | actual | result
-  H1 | Sample facilities load | data/ | 10 accepted, 0 rejected; sample IDs F001-F010 hash to buckets 137-146, so 0 collisions | data/facilities.txt: 10 accepted, 0 rejected ( Hash Capacity: 256, Entries: 10, Collisions: 0 ) | PASS
-  H2 | Hash collision (HASH-7) | testdata/hash_edge_cases (F001 line 2, F257 line 17) | F257 collides with F001 (both bucket 137): Collisions 1 | testdata/hash_edge_cases/facilities.txt: 11 accepted, 6 rejected ( Hash Capacity: 256, Entries: 11, Collisions:1 ) | PASS
-  H3 | Duplicate ID differing by case | testdata/hash_edge_cases line 12: f009 after F009 | rejected, first record kept, collision count unchanged | WARNING: testdata/hash_edge_cases/facilities.txt line 12: Duplicate ID; Collisions stays 1; search F009 shows Room 205 | PASS
-  H4 | Duplicate ID, exact match | testdata/hash_edge_cases line 16: F006 again | rejected, collision count unchanged | WARNING: testdata/hash_edge_cases/facilities.txt line 16: Duplicate ID; Collisions stays 1 | PASS
-  H5 | Invalid ID format in file | lines 13 (009) and 14 (G009) | both rejected with reason | WARNING: ... line 13: invalid ID, must be F followed by three digits; WARNING: ... line 14: invalid ID, must be F followed by three digits | PASS
-  H6 | Unknown building in facilities | line 18: F020, building Mars | rejected, unknown building | WARNING: testdata/hash_edge_cases/facilities.txt line 18: Building is unknown. | PASS
-  H7 | Wrong field count | line 19: F022, a, Gym, b, extra (5 fields) | rejected, field count | WARNING: testdata/hash_edge_cases/facilities.txt line 19: wrong field count (expected FacilityID|FacilityName|BuildingName|Category) | PASS
-  H8 | Blank and comment lines | line 1 (# comment), line 10 (blank) | skipped, no warning, not counted | no warnings for lines 1 or 10; 11 accepted + 6 rejected = 17 data lines | PASS
-  H9 | Display all facilities | menu 1, testdata/hash_edge_cases | 11 facilities in file order (F001..F010, F257), total 11 | F001, Main Reading Room ... F257, Test, Room1, Classroom; Total Facilities: 11 | PASS
-  H10 | ID search found | menu 2, F004 | F004, Computer Lab A, Science Building, Computer Lab | F004 | Computer Lab A | Science Building | Computer Lab (shown with commas: F004, Computer Lab A, Science Building, Computer Lab) | PASS
-  H11 | ID search lowercase | menu 2, f004 | same as H10 | F004, Computer Lab A, Science Building, Computer Lab | PASS
-  H12 | ID search invalid format | menu 2, 004 | invalid format message | invalid ID, must be F followed by three digits. | PASS
-  H13 | ID search not found | menu 2, F999 | not found, showing F999 | Not found: no facility with ID F999. | PASS
-  H14 | ID search blank | menu 2, (blank) | error, back to menu | Error: facility ID cannot be blank. | PASS
-  H15 | ID search on a collided key | menu 2, F257 | F257 found in the same bucket as F001 | F257, Test, Room1, Classroom | PASS
-  H16 | Invalid menu input and recovery | (blank), x, abc, 12, then 1, then 0 | error for each bad input; menu repeats; option 1 then works; 0 exits | Invalid input: enter a number from 0 to 9. (x4); facility list printed; Goodbye! | PASS
+Elijah Ward, Tests for Member A (M1). Format: number | description | input | expected | actual | result
+H1 | Sample facilities load | data/ | 10 accepted, 0 rejected; sample IDs F001-F010 hash to buckets 137-146, so 0 collisions | data/facilities.txt: 10 accepted, 0 rejected ( Hash Capacity: 256, Entries: 10, Collisions: 0 ) | PASS
+H2 | Hash collision (HASH-7) | testdata/hash_edge_cases (F001 line 2, F257 line 17) | F257 collides with F001 (both bucket 137): Collisions 1 | testdata/hash_edge_cases/facilities.txt: 11 accepted, 6 rejected ( Hash Capacity: 256, Entries: 11, Collisions:1 ) | PASS
+H3 | Duplicate ID differing by case | testdata/hash_edge_cases line 12: f009 after F009 | rejected, first record kept, collision count unchanged | WARNING: testdata/hash_edge_cases/facilities.txt line 12: Duplicate ID; Collisions stays 1; search F009 shows Room 205 | PASS
+H4 | Duplicate ID, exact match | testdata/hash_edge_cases line 16: F006 again | rejected, collision count unchanged | WARNING: testdata/hash_edge_cases/facilities.txt line 16: Duplicate ID; Collisions stays 1 | PASS
+H5 | Invalid ID format in file | lines 13 (009) and 14 (G009) | both rejected with reason | WARNING: ... line 13: invalid ID, must be F followed by three digits; WARNING: ... line 14: invalid ID, must be F followed by three digits | PASS
+H6 | Unknown building in facilities | line 18: F020, building Mars | rejected, unknown building | WARNING: testdata/hash_edge_cases/facilities.txt line 18: Building is unknown. | PASS
+H7 | Wrong field count | line 19: F022, a, Gym, b, extra (5 fields) | rejected, field count | WARNING: testdata/hash_edge_cases/facilities.txt line 19: wrong field count (expected FacilityID|FacilityName|BuildingName|Category) | PASS
+H8 | Blank and comment lines | line 1 (# comment), line 10 (blank) | skipped, no warning, not counted | no warnings for lines 1 or 10; 11 accepted + 6 rejected = 17 data lines | PASS
+H9 | Display all facilities | menu 1, testdata/hash_edge_cases | 11 facilities in file order (F001..F010, F257), total 11 | F001, Main Reading Room ... F257, Test, Room1, Classroom; Total Facilities: 11 | PASS
+H10 | ID search found | menu 2, F004 | F004, Computer Lab A, Science Building, Computer Lab | F004 | Computer Lab A | Science Building | Computer Lab (shown with commas: F004, Computer Lab A, Science Building, Computer Lab) | PASS
+H11 | ID search lowercase | menu 2, f004 | same as H10 | F004, Computer Lab A, Science Building, Computer Lab | PASS
+H12 | ID search invalid format | menu 2, 004 | invalid format message | invalid ID, must be F followed by three digits. | PASS
+H13 | ID search not found | menu 2, F999 | not found, showing F999 | Not found: no facility with ID F999. | PASS
+H14 | ID search blank | menu 2, (blank) | error, back to menu | Error: facility ID cannot be blank. | PASS
+H15 | ID search on a collided key | menu 2, F257 | F257 found in the same bucket as F001 | F257, Test, Room1, Classroom | PASS
+H16 | Invalid menu input and recovery | (blank), x, abc, 12, then 1, then 0 | error for each bad input; menu repeats; option 1 then works; 0 exits | Invalid input: enter a number from 0 to 9. (x4); facility list printed; Goodbye! | PASS
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

@@ -1,2 +1,5 @@
 .DS_Store
 Program
+tree_test
+graph_test
+*.o
